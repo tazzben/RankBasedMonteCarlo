@@ -7,7 +7,7 @@ if __name__ == '__main__':
 
     kw = MonteCarloKruskalWallis()
     kw.PrintCriticalValueTable((25, 25, 25))
-
+    
     ks = MonteCarloKolmogorovSmirnov()
     ks.PrintCriticalValueTable((12, 12))
 
