@@ -1,13 +1,15 @@
 from RankBasedMonteCarlo import MonteCarloMannWhitney, MonteCarloKruskalWallis, MonteCarloKolmogorovSmirnov, MonteCarloKuiper
 
-mw = MonteCarloMannWhitney()
-mw.PrintCriticalValueTable((20, 20), 10000, 130)
+if __name__ == '__main__':
 
-kw = MonteCarloKruskalWallis()
-kw.PrintCriticalValueTable((25, 25, 25))
+    mw = MonteCarloMannWhitney()
+    mw.PrintCriticalValueTable((20, 20), 10000, 130)
 
-ks = MonteCarloKolmogorovSmirnov()
-ks.PrintCriticalValueTable((12, 12))
+    kw = MonteCarloKruskalWallis()
+    kw.PrintCriticalValueTable((25, 25, 25))
 
-k = MonteCarloKuiper()
-k.PrintCriticalValueTable((12, 12))
+    ks = MonteCarloKolmogorovSmirnov()
+    ks.PrintCriticalValueTable((12, 12))
+
+    k = MonteCarloKuiper()
+    k.PrintCriticalValueTable((12, 12))
