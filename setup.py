@@ -4,7 +4,7 @@ setup(
     name='RankBasedMonteCarlo',
     version='0.1dev',
     packages=['RankBasedMonteCarlo',],
-    license='Creative Commons Attribution-Noncommercial-Share Alike license',
+    license='MIT',
     install_requires=[
         'numpy',
         'pandas'
