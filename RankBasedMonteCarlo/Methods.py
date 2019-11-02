@@ -45,6 +45,13 @@ class _RankBasedMonteCarlo:
 				Specifies a list of critical values.
 			reviseDist : bool
 				Parameter to reverse the direction of the null distribution for the purposes of calculating p-values.  Defaults to standard.
+		
+			Returns
+			_______
+			criticalValues : dictionary
+				A dictionary of critical values corresponding to the specified parameter list.
+			pvalue : float or None
+				The p-value of the observedValue specified in the parameter list (None if unspecified).
 		"""
 		r = self._PoolMonteCarlo(ns, reps)
 
