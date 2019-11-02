@@ -14,16 +14,13 @@ if __name__ == '__main__':
 
 ~~~
 
+
 The class is imported from the package on the first line.  Within the if statement, an instance of the class is created (kw) and the critical values and pvalue is determined on the next line.  The PrintCriticalValueTable method accepts the same parameters regardless of the statistical test:
 
-ns : tuple
-    A tuple listing the number of observations per group.  For instance (6,5)
-reps : int 
-    The number of repetitions the process completes before producing critical values.  Default is 10,000.
-observedValue : float
-	Optional value used to determine p-value
-PrintToScreen : bool
-    Specifies if the critical values are printed to the screen.  Defaults to True.
-cvs : list
-    Specifies a list of critical values.
+
+1. ns : tuple : A tuple listing the number of observations per group.  For instance (6,5)
+2. reps : int : The number of repetitions the process completes before producing critical values.  Default is 10,000.
+3. observedValue : float : Optional value used to determine p-value
+4. PrintToScreen : bool : Specifies if the critical values are printed to the screen.  Defaults to True.
+5. cvs : list : Specifies a list of critical values.
 		
