@@ -2,6 +2,7 @@ import numpy
 import pandas
 import sys
 import multiprocessing
+from scipy import stats
 
 class _RankBasedMonteCarlo:
 	
@@ -57,7 +58,7 @@ class _RankBasedMonteCarlo:
 		
 		try:
 			observedValue = float(observedValue)
-			pvalue = len(r[(r > observedValue)])/reps if reverseDist else len(r[(r < observedValue)])/reps
+			pvalue = (1-stats.percentileofscore(r, observedValue)/100) if reverseDist else stats.percentileofscore(r, observedValue)/100
 			if PrintToScreen: print("Percent of distribution " + ("above" if reverseDist else "below") + " the observed value:" + "{: .4f}".format(pvalue))
 			return (dict(zip(cvs, cvresults)), pvalue)
 		
