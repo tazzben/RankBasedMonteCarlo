@@ -7,8 +7,7 @@ setup(
     license='MIT',
     install_requires=[
         'numpy',
-        'pandas',
-        'scipy'
+        'pandas'
     ],
     author='Ben Smith',
     author_email='bosmith@unomaha.edu'
