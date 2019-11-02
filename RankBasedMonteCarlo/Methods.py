@@ -12,7 +12,7 @@ class _RankBasedMonteCarlo:
 
 	def _RandomStatistic(self, sampleSizes):
 		sample = self._RandomRank(sampleSizes)
-		return self.CalculateStatistic(sample)
+		return self._CalculateStatistic(sample)
 
 	def _PoolMonteCarlo(self, ns, reps):
 		p = multiprocessing.Pool()
@@ -24,7 +24,7 @@ class _RankBasedMonteCarlo:
 		p.join()
 		return numpy.array(r)
 
-	def CalculateStatistic(self, sample):
+	def _CalculateStatistic(self, sample):
 		return sample['Rank'].median()
 
 	def PrintCriticalValueTable(self, ns, reps = 10000, observedValue = None, PrintToScreen = True, cvs = [0.01, 0.025, 0.05, 0.1], reverseDist = False):
@@ -67,7 +67,7 @@ class _RankBasedMonteCarlo:
 
 class MonteCarloKolmogorovSmirnov(_RankBasedMonteCarlo):
 
-	def CalculateStatistic(self, sample):
+	def _CalculateStatistic(self, sample):
 		n1len = len(sample[sample['Group'] == 1].index)
 		n2len = len(sample[sample['Group'] == 2].index)
 		return numpy.array([numpy.abs(len(sample[((sample['Group'] == 1) & (sample['Rank'] <= x))].index)/n1len -
@@ -97,7 +97,7 @@ class MonteCarloKolmogorovSmirnov(_RankBasedMonteCarlo):
 
 class MonteCarloKuiper(_RankBasedMonteCarlo):
 	
-	def CalculateStatistic(self, sample):
+	def _CalculateStatistic(self, sample):
 		n1len = len(sample[sample['Group'] == 1].index)
 		n2len = len(sample[sample['Group'] == 2].index)
 		dPos = numpy.array([len(sample[((sample['Group'] == 1) & (sample['Rank'] <= x))].index)/n1len -
@@ -129,14 +129,14 @@ class MonteCarloKuiper(_RankBasedMonteCarlo):
 
 class MonteCarloMannWhitney(_RankBasedMonteCarlo):
 	
-	def CalculateStatistic(self, sample):
+	def _CalculateStatistic(self, sample):
 		n1len = len(sample[sample['Group'] == 1].index)
 		U1 = sample[sample['Group'] == 1]['Rank'].sum() - (n1len*(n1len+1))/2
 		return U1
 
 class MonteCarloKruskalWallis(_RankBasedMonteCarlo):
 
-	def CalculateStatistic(self, sample):
+	def _CalculateStatistic(self, sample):
 		n = len(sample.index)
 		rbar = 0.5*(n+1)
 		divisor = 0
