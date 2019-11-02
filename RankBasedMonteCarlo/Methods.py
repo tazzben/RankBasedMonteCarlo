@@ -66,6 +66,9 @@ class _RankBasedMonteCarlo:
 
 
 class MonteCarloKolmogorovSmirnov(_RankBasedMonteCarlo):
+	""" Calculates the null hypothesis distribution of the two sample Kolmogorov-Smirnov test 
+
+	"""
 
 	def _CalculateStatistic(self, sample):
 		n1len = len(sample[sample['Group'] == 1].index)
@@ -91,12 +94,22 @@ class MonteCarloKolmogorovSmirnov(_RankBasedMonteCarlo):
 				Specifies a list of critical values.
 			reviseDist : bool
 				Parameter to reverse the direction of the null distribution for the purposes of calculating p-values.  Defaults to standard.
+		
+			Returns
+			_______
+			criticalValues : dictionary
+				A dictionary of critical values corresponding to the specified parameter list.
+			pvalue : float or None
+				The p-value of the observedValue specified in the parameter list (None if unspecified).
 		"""
 		return super().PrintCriticalValueTable(ns, reps, observedValue, PrintToScreen, cvs, reverseDist)
 
 
 class MonteCarloKuiper(_RankBasedMonteCarlo):
-	
+	""" Calculates the null hypothesis distribution of the two sample Kuiper test 
+
+	"""
+
 	def _CalculateStatistic(self, sample):
 		n1len = len(sample[sample['Group'] == 1].index)
 		n2len = len(sample[sample['Group'] == 2].index)
@@ -124,17 +137,31 @@ class MonteCarloKuiper(_RankBasedMonteCarlo):
 				Specifies a list of critical values.
 			reviseDist : bool
 				Parameter to reverse the direction of the null distribution for the purposes of calculating p-values.  Defaults to standard.
+
+			Returns
+			_______
+			criticalValues : dictionary
+				A dictionary of critical values corresponding to the specified parameter list.
+			pvalue : float or None
+				The p-value of the observedValue specified in the parameter list (None if unspecified).
+
 		"""
 		return super().PrintCriticalValueTable(ns, reps, observedValue, PrintToScreen, cvs, reverseDist)
 
 class MonteCarloMannWhitney(_RankBasedMonteCarlo):
-	
+	""" Calculates the null hypothesis distribution of the Mann-Whitney test 
+
+	"""
+
 	def _CalculateStatistic(self, sample):
 		n1len = len(sample[sample['Group'] == 1].index)
 		U1 = sample[sample['Group'] == 1]['Rank'].sum() - (n1len*(n1len+1))/2
 		return U1
 
 class MonteCarloKruskalWallis(_RankBasedMonteCarlo):
+	""" Calculates the null hypothesis distribution of the Kruskal–Wallis test 
+
+	"""
 
 	def _CalculateStatistic(self, sample):
 		n = len(sample.index)
@@ -168,6 +195,13 @@ class MonteCarloKruskalWallis(_RankBasedMonteCarlo):
 				Specifies a list of critical values.
 			reviseDist : bool
 				Parameter to reverse the direction of the null distribution for the purposes of calculating p-values.  Defaults to standard.
+
+			Returns
+			_______
+			criticalValues : dictionary
+				A dictionary of critical values corresponding to the specified parameter list.
+			pvalue : float or None
+				The p-value of the observedValue specified in the parameter list (None if unspecified).
 		"""
 		return super().PrintCriticalValueTable(ns, reps, observedValue, PrintToScreen, cvs, reverseDist)
 
