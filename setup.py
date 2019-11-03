@@ -22,6 +22,6 @@ setup(
     ],
     keywords = ['Monte Carlo', 'Rank based', 'Statistics'],
     url = 'https://github.com/tazzben/RankBasedMonteCarlo',
-    download_url = 'https://github.com/tazzben/RankBasedMonteCarlo/archive/v_01.tar.gz',  
+    download_url = 'https://github.com/tazzben/RankBasedMonteCarlo/archive/v0.1.tar.gz',  
     description = 'A set of Monte Carlo based tools to create test statistics for four non-parametric rank-based tests: Mann-Whitney (MW), Kruskal-Wallis (KW), Kolmogorov-Smirnov (KS) and Kuiper (K).'
 )
