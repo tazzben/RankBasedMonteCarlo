@@ -43,29 +43,36 @@ class _RankBasedMonteCarlo:
         reverseDist=False,
     ):
         """ 
-			Prints the critical values and p-value, if an observed test statistic is supplied.  The method returns a dictionary of critical values and p-value as a tuple.  
-		
+			Prints the critical values and p-value, if an observed test statistic is
+			supplied.  The method returns a dictionary of critical values and p-value as
+			a tuple.  
+
 			Parameters
 			----------
-			ns : tuple
-				A tuple listing the number of observations per group.  For instance (6,5)
-			reps : int 
-    			The number of repetitions the process completes before producing critical values.  Default is 10,000.
-			observedValue : float
-				Optional value used to determine p-value
-			PrintToScreen : bool
-				Specifies if the critical values are printed to the screen.  Defaults to True.
-			cvs : list
-				Specifies a list of critical values.
-			reviseDist : bool
-				Parameter to reverse the direction of the null distribution for the purposes of calculating p-values.  Defaults to standard.
-		
+			ns : tuple 
+                A tuple listing the number of observations per group.  For instance (6,5) 
+            reps : int 
+                The number of repetitions the process completes before producing critical
+                values.  Default is 10,000.
+			observedValue : float 
+                Optional value used to determine p-value
+			PrintToScreen : bool 
+                Specifies if the critical values are printed to the screen.  Defaults
+                to True. 
+            cvs : list 
+                Specifies a list of critical values. 
+            reviseDist : bool
+                Parameter to reverse the direction of the null distribution for the
+                purposes of calculating p-values.  Defaults to standard.
+
 			Returns
 			_______
-			criticalValues : dictionary
-				A dictionary of critical values corresponding to the specified parameter list.
-			pvalue : float or None
-				The p-value of the observedValue specified in the parameter list (None if unspecified).
+			criticalValues : dictionary 
+                A dictionary of critical values corresponding to
+			    the specified parameter list. 
+            pvalue : float or None 
+                The p-value of the observedValue specified in the parameter list 
+                (None if unspecified).
 		"""
         r = self._PoolMonteCarlo(ns, reps)
 
@@ -134,29 +141,36 @@ class MonteCarloKolmogorovSmirnov(_RankBasedMonteCarlo):
         reverseDist=True,
     ):
         """ 
-			Prints the critical values and p-value, if an observed test statistic is supplied.  The method returns a dictionary of critical values and p-value as a tuple.  
-		
+			Prints the critical values and p-value, if an observed test statistic is
+			supplied.  The method returns a dictionary of critical values and p-value as
+			a tuple.  
+
 			Parameters
 			----------
-			ns : tuple
-				A tuple listing the number of observations per group.  For instance (6,5)
-			reps : int 
-    			The number of repetitions the process completes before producing critical values.  Default is 10,000.
-			observedValue : float
-				Optional value used to determine p-value
-			PrintToScreen : bool
-				Specifies if the critical values are printed to the screen.  Defaults to True.
-			cvs : list
-				Specifies a list of critical values.
-			reviseDist : bool
-				Parameter to reverse the direction of the null distribution for the purposes of calculating p-values.  Defaults to standard.
-		
+			ns : tuple 
+                A tuple listing the number of observations per group.  For instance (6,5) 
+            reps : int 
+                The number of repetitions the process completes before producing critical
+                values.  Default is 10,000.
+			observedValue : float 
+                Optional value used to determine p-value
+			PrintToScreen : bool 
+                Specifies if the critical values are printed to the screen.  Defaults
+                to True. 
+            cvs : list 
+                Specifies a list of critical values. 
+            reviseDist : bool
+                Parameter to reverse the direction of the null distribution for the
+                purposes of calculating p-values.  Defaults to standard.
+
 			Returns
 			_______
-			criticalValues : dictionary
-				A dictionary of critical values corresponding to the specified parameter list.
-			pvalue : float or None
-				The p-value of the observedValue specified in the parameter list (None if unspecified).
+			criticalValues : dictionary 
+                A dictionary of critical values corresponding to
+			    the specified parameter list. 
+            pvalue : float or None 
+                The p-value of the observedValue specified in the parameter list 
+                (None if unspecified).
 		"""
         return super().PrintCriticalValueTable(
             ns, reps, observedValue, PrintToScreen, cvs, reverseDist
@@ -201,30 +215,36 @@ class MonteCarloKuiper(_RankBasedMonteCarlo):
         reverseDist=True,
     ):
         """ 
-			Prints the critical values and p-value, if an observed test statistic is supplied.  The method returns a dictionary of critical values and p-value as a tuple.  
-		
+			Prints the critical values and p-value, if an observed test statistic is
+			supplied.  The method returns a dictionary of critical values and p-value as
+			a tuple.  
+
 			Parameters
 			----------
-			ns : tuple
-				A tuple listing the number of observations per group.  For instance (6,5)
-			reps : int 
-    			The number of repetitions the process completes before producing critical values.  Default is 10,000.
-			observedValue : float
-				Optional value used to determine p-value
-			PrintToScreen : bool
-				Specifies if the critical values are printed to the screen.  Defaults to True.
-			cvs : list
-				Specifies a list of critical values.
-			reviseDist : bool
-				Parameter to reverse the direction of the null distribution for the purposes of calculating p-values.  Defaults to standard.
+			ns : tuple 
+                A tuple listing the number of observations per group.  For instance (6,5) 
+            reps : int 
+                The number of repetitions the process completes before producing critical
+                values.  Default is 10,000.
+			observedValue : float 
+                Optional value used to determine p-value
+			PrintToScreen : bool 
+                Specifies if the critical values are printed to the screen.  Defaults
+                to True. 
+            cvs : list 
+                Specifies a list of critical values. 
+            reviseDist : bool
+                Parameter to reverse the direction of the null distribution for the
+                purposes of calculating p-values.  Defaults to standard.
 
 			Returns
 			_______
-			criticalValues : dictionary
-				A dictionary of critical values corresponding to the specified parameter list.
-			pvalue : float or None
-				The p-value of the observedValue specified in the parameter list (None if unspecified).
-
+			criticalValues : dictionary 
+                A dictionary of critical values corresponding to
+			    the specified parameter list. 
+            pvalue : float or None 
+                The p-value of the observedValue specified in the parameter list 
+                (None if unspecified).
 		"""
         return super().PrintCriticalValueTable(
             ns, reps, observedValue, PrintToScreen, cvs, reverseDist
@@ -276,29 +296,36 @@ class MonteCarloKruskalWallis(_RankBasedMonteCarlo):
         reverseDist=True,
     ):
         """ 
-			Prints the critical values and p-value, if an observed test statistic is supplied.  The method returns a dictionary of critical values and p-value as a tuple.  
-		
+			Prints the critical values and p-value, if an observed test statistic is
+			supplied.  The method returns a dictionary of critical values and p-value as
+			a tuple.  
+
 			Parameters
 			----------
-			ns : tuple
-				A tuple listing the number of observations per group.  For instance (6,5)
-			reps : int 
-    			The number of repetitions the process completes before producing critical values.  Default is 10,000.
-			observedValue : float
-				Optional value used to determine p-value
-			PrintToScreen : bool
-				Specifies if the critical values are printed to the screen.  Defaults to True.
-			cvs : list
-				Specifies a list of critical values.
-			reviseDist : bool
-				Parameter to reverse the direction of the null distribution for the purposes of calculating p-values.  Defaults to standard.
+			ns : tuple 
+                A tuple listing the number of observations per group.  For instance (6,5) 
+            reps : int 
+                The number of repetitions the process completes before producing critical
+                values.  Default is 10,000.
+			observedValue : float 
+                Optional value used to determine p-value
+			PrintToScreen : bool 
+                Specifies if the critical values are printed to the screen.  Defaults
+                to True. 
+            cvs : list 
+                Specifies a list of critical values. 
+            reviseDist : bool
+                Parameter to reverse the direction of the null distribution for the
+                purposes of calculating p-values.  Defaults to standard.
 
 			Returns
 			_______
-			criticalValues : dictionary
-				A dictionary of critical values corresponding to the specified parameter list.
-			pvalue : float or None
-				The p-value of the observedValue specified in the parameter list (None if unspecified).
+			criticalValues : dictionary 
+                A dictionary of critical values corresponding to
+			    the specified parameter list. 
+            pvalue : float or None 
+                The p-value of the observedValue specified in the parameter list 
+                (None if unspecified).
 		"""
         return super().PrintCriticalValueTable(
             ns, reps, observedValue, PrintToScreen, cvs, reverseDist
