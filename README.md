@@ -23,4 +23,23 @@ The class is imported from the package on the first line.  Within the if stateme
 3. observedValue : float : Optional value used to determine p-value
 4. PrintToScreen : bool : Specifies if the critical values are printed to the screen.  Defaults to True.
 5. cvs : list : Specifies a list of critical values.
-		
+
+## Installation
+
+This package can be installed using pip or conda (Anaconda):
+
+### Using Pip
+
+~~~
+
+pip install RankBasedMonteCarlo
+
+~~~		
+
+### Using Conda
+
+~~~
+
+conda install -c tazzben rankbasedmontecarlo
+
+~~~
