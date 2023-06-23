@@ -2,7 +2,7 @@ import numpy
 import pandas
 import sys
 import multiprocessing
-
+from tqdm import tqdm
 
 class _RankBasedMonteCarlo:
     def _RandomRank(self, ns):
@@ -22,7 +22,7 @@ class _RankBasedMonteCarlo:
         p = multiprocessing.Pool()
         r = []
         for i, result in enumerate(
-            p.imap_unordered(self._RandomStatistic, (ns,) * reps)
+            tqdm(p.imap_unordered(self._RandomStatistic, (ns,) * reps), total=reps)
         ):
             r.append(result)
             sys.stderr.write("\r{: .2f}% done".format(100 * i / reps))
